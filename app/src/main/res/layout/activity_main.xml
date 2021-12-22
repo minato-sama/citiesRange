@@ -14,7 +14,8 @@
         android:inputType="numberDecimal"
         android:textSize="27sp"
         android:autofillHints=""
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        tools:context=".GameActivity"/>
 
     <Spinner
         android:id="@+id/spinner"

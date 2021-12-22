@@ -31,9 +31,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         citiesDistanceText = findViewById(id.distance)
         citiesArray = gson.fromJson(InputStreamReader(citiesList), Cities::class.java).movies
         val citiesName: ArrayList<String> = ArrayList()
+
         for (city in citiesArray) {
             citiesName.add(city.name)
         }
+
         val adapter = ArrayAdapter(this, layout.support_simple_spinner_dropdown_item, citiesName)
         spinner.adapter = adapter
         spinner.onItemSelectedListener = this
@@ -41,8 +43,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     fun cityOnCLickEvent(view: View?) {
         var userInput = citiesDistanceText.text.toString().trim()
+
         if (userInput.isEmpty())
             userInput = "0"
+
         distance = userInput.toDouble()
         val lat: Double = citiesArray[citiesIndex].coord.lat.toDouble()
         val lon: Double = citiesArray[citiesIndex].coord.lon.toDouble()
